@@ -1,1 +1,1 @@
-// configure aqui sua store
+// Iniciando o projeto
