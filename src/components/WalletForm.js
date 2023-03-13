@@ -9,7 +9,11 @@ class WalletForm extends Component {
   state = {
     value: 0,
     description: '',
-    currency: 'EUR',
+    currency: '',
+    method: '',
+    methodsAvailable: ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'],
+    tag: '',
+    tagsAvailable: ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'],
   };
 
   componentDidMount() {
@@ -24,7 +28,14 @@ class WalletForm extends Component {
   };
 
   render() {
-    const { value, description, currency } = this.state;
+    const {
+      value,
+      description,
+      currency,
+      method,
+      methodsAvailable,
+      tag,
+      tagsAvailable } = this.state;
     const { currencies } = this.props;
     return (
       <form>
@@ -51,6 +62,20 @@ class WalletForm extends Component {
           value={ currency }
           onChange={ this.handleChange }
           options={ currencies }
+        />
+        <Select
+          testid="method-input"
+          name="method"
+          value={ method }
+          onChange={ this.handleChange }
+          options={ methodsAvailable }
+        />
+        <Select
+          testid="tag-input"
+          name="tag"
+          value={ tag }
+          onChange={ this.handleChange }
+          options={ tagsAvailable }
         />
       </form>
     );
