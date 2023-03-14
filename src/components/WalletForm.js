@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 import Input from './Input';
 import Select from './Select';
 import { getSelectedCurrencies, addExpense } from '../redux/actions/index';
+import { fetchAllCurrencies } from '../helpers/fetchFunctions';
 
 const initialState = {
   value: '',
   description: '',
-  currency: '',
-  method: '',
-  methodsAvailable: ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'],
-  tag: '',
-  tagsAvailable: ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'],
+  currency: 'USD',
+  method: 'Dinheiro',
+  tag: 'Alimentação',
+  id: '',
+  exchangeRates: [],
 };
 
 class WalletForm extends Component {
@@ -29,13 +30,16 @@ class WalletForm extends Component {
     }));
   };
 
-  addNewExpense = () => {
-    const { value, description, currency, method, tag } = this.state;
+  addNewExpense = async () => {
     const { dispatch, expenses } = this.props;
-    const expenseID = JSON.stringify(expenses.length);
-    const newExpense = { value, description, currency, method, tag, id: expenseID };
-    dispatch(addExpense(newExpense));
-    this.setState(initialState);
+    const expenseID = expenses.length;
+    this.setState({
+      id: expenseID,
+      exchangeRates: await fetchAllCurrencies(),
+    }, () => {
+      dispatch(addExpense(this.state));
+      this.setState(initialState);
+    });
   };
 
   render() {
@@ -44,10 +48,10 @@ class WalletForm extends Component {
       description,
       currency,
       method,
-      methodsAvailable,
-      tag,
-      tagsAvailable } = this.state;
+      tag } = this.state;
     const { currencies } = this.props;
+    const methodsAvailable = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
+    const tagsAvailable = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
     return (
       <form
         onSubmit={ (e) => {
