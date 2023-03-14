@@ -1,4 +1,5 @@
-import { USER_LOGIN, GET_CURRENCIES } from './actionsTypes';
+import { USER_LOGIN, GET_CURRENCIES, ADD_EXPENSE } from './actionsTypes';
+import { fetchAllCurrencies } from '../../helpers/fetchFunctions';
 
 export const enterAccount = (payload) => ({
   type: USER_LOGIN,
@@ -7,17 +8,23 @@ export const enterAccount = (payload) => ({
 
 export const getCurrencies = (payload) => ({
   type: GET_CURRENCIES,
-  payload, // currencies available
+  payload, // selected currencies available
 });
 
-export const fetchCurrencies = () => async (dispatch) => {
-  const endPoint = 'https://economia.awesomeapi.com.br/json/all';
-  try {
-    const response = await fetch(endPoint);
-    const data = await response.json();
-    const currencies = Object.keys(data).filter((currency) => currency !== 'USDT');
-    dispatch(getCurrencies(currencies));
-  } catch (error) {
-    console.log(error);
-  }
-};
+export const addExpense = (payload) => ({
+  type: ADD_EXPENSE,
+  payload, // new expense
+});
+
+export function getSelectedCurrencies() {
+  return async (dispatch) => {
+    try {
+      const data = await fetchAllCurrencies();
+      const selectedCurrencies = Object.keys(data)
+        .filter((currency) => currency !== 'USDT');
+      return dispatch(getCurrencies(selectedCurrencies));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
