@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { enterAccount } from '../redux/actions/index';
+import Input from '../components/Input';
 
 class Login extends React.Component {
   state = {
@@ -36,18 +37,18 @@ class Login extends React.Component {
           history.push('/carteira');
         } }
       >
-        <input
+        <Input
           type="email"
           placeholder="Type your e-mail"
-          data-testid="email-input"
+          testid="email-input"
           name="email"
           value={ email }
           onChange={ this.handleChange }
         />
-        <input
+        <Input
           type="password"
           placeholder="Type your password"
-          data-testid="password-input"
+          testid="password-input"
           name="password"
           value={ password }
           onChange={ this.handleChange }
