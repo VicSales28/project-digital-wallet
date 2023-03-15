@@ -1,8 +1,8 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Routes from '../Routes';
 
+import Routes from '../Routes';
 import { renderWithRouterAndRedux } from './helpers/renderWith';
 import { signInWithValidInputs } from './helpers/helperFunctions';
 import {
