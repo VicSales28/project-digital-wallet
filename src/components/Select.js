@@ -16,6 +16,7 @@ class Select extends Component {
             <option
               key={ option }
               value={ option }
+              data-testid={ option }
             >
               { option }
             </option>
