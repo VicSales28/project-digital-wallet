@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Input from './Input';
 import Select from './Select';
 import { getSelectedCurrencies, addExpense } from '../redux/actions/index';
