@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Routes from '../Routes';
 
 import { renderWithRouterAndRedux } from './helpers/renderWith';
-import { logInWithValidInputs } from './helpers/helperFunctions';
+import { signInWithValidInputs } from './helpers/helperFunctions';
 import {
   VALID_EMAIL,
   VALID_PASSWORD,
@@ -28,15 +28,12 @@ describe('Login page tests', () => {
     renderWithRouterAndRedux(<Routes />, { loginEntry });
 
     const emailInput = screen.getByTestId('email-input');
-    expect(emailInput).toBeInTheDocument();
     expect(emailInput).toBeVisible();
 
     const passwordInput = screen.getByTestId('password-input');
-    expect(passwordInput).toBeInTheDocument();
     expect(passwordInput).toBeVisible();
 
     const loginBtn = screen.getByRole('button', { name: 'Entrar' });
-    expect(loginBtn).toBeInTheDocument();
     expect(loginBtn).toBeVisible();
   });
 
@@ -94,7 +91,7 @@ describe('Login page tests', () => {
     const loginEntry = ['/'];
     const { history } = renderWithRouterAndRedux(<Routes />, { loginEntry });
 
-    logInWithValidInputs();
+    signInWithValidInputs();
 
     const { pathname } = history.location;
     expect(pathname).toEqual('/carteira');

@@ -5,3 +5,5 @@ export const INVALID_EMAIL_1 = 'student@com@';
 export const INVALID_EMAIL_2 = 'trybecom@';
 export const INVALID_EMAIL_3 = 'student@trybe.';
 export const INVALID_PASSWORD = '#1';
+export const INITIAL_TOTAL_SUM = 0.00;
+export const INITIAL_HEADER_CURR = 'BRL';
