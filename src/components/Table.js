@@ -9,7 +9,7 @@ class Table extends Component {
 
   getName = (obj, key) => obj[key].name;
 
-  getRoundedExchange = (obj, key) => Number(obj[key].ask).toFixed(2);
+  getRoundedRate = (obj, key) => Number(obj[key].ask).toFixed(2);
 
   getConvertedValue = (val, obj, key) => (val * Number(obj[key].ask)).toFixed(2);
 
@@ -55,7 +55,7 @@ class Table extends Component {
               <td>{method}</td>
               <td>{this.getValue(value)}</td>
               <td>{this.getName(exchangeRates, currency)}</td>
-              <td>{this.getRoundedExchange(exchangeRates, currency)}</td>
+              <td>{this.getRoundedRate(exchangeRates, currency)}</td>
               <td>{this.getConvertedValue(value, exchangeRates, currency)}</td>
               <td>Real</td>
               <td>
@@ -64,6 +64,11 @@ class Table extends Component {
                   onClick={ () => this.toRemove(id) }
                 >
                   Delete
+                </button>
+                <button
+                  data-testid="edit-btn"
+                >
+                  Editar despesa
                 </button>
               </td>
             </tr>
