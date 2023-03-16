@@ -1,4 +1,4 @@
-import { USER_LOGIN, GET_CURRENCIES, ADD_EXPENSE } from './actionsTypes';
+import { USER_LOGIN, GET_CURRENCIES, ADD_EXPENSE, UPDATE_EXPENSES } from './actionsTypes';
 import { fetchAllCurrencies } from '../../helpers/fetchFunctions';
 
 export const enterAccount = (payload) => ({
@@ -14,6 +14,11 @@ export const getCurrencies = (payload) => ({
 export const addExpense = (payload) => ({
   type: ADD_EXPENSE,
   payload, // new expense
+});
+
+export const updateExpenses = (payload) => ({
+  type: UPDATE_EXPENSES,
+  payload, // updated expenses
 });
 
 export function getSelectedCurrencies() {
