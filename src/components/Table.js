@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { updateExpenses } from '../redux/actions/index';
+import '../styles/components/Table.css';
 
 class Table extends Component {
   getValue = (value) => parseInt(value, 10).toFixed(2);
@@ -60,7 +61,8 @@ class Table extends Component {
               <td>BRL</td>
               <td>
                 <button
-                  data-testid="delete-btn"
+                  data-testid="delete_btn"
+                  className="delete_btn"
                   onClick={ () => this.toRemove(id) }
                 >
                   Excluir

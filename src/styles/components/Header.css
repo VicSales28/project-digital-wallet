@@ -1,5 +1,5 @@
 header {
-  background-color: #65b8a6;
+  background-color: rgb(101, 184, 166);
   height: 250px;
 }
 
@@ -29,7 +29,7 @@ header h1 {
 }
 
 .container_header div:nth-child( 2 ) h2 {
-  color: #1f192f;
+  color: rgb(31, 25, 47);
   font-size: 20px;
   font-weight: 600;
   margin: 0;
