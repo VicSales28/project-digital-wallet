@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import WalletIcon from '../icons/WalletIcon';
+import '../styles/components/Header.css';
+
 class Header extends Component {
   render() {
     const { email, expenses } = this.props;
@@ -13,11 +16,32 @@ class Header extends Component {
       }, 0);
 
     return (
-      <div>
-        <h3 data-testid="email-field">{ email }</h3>
-        <p data-testid="total-field">{ total.toFixed(2) }</p>
-        <p data-testid="header-currency-field">BRL</p>
-      </div>
+      <header>
+        <div className="container_header">
+
+          <div className="user_header">
+            <WalletIcon />
+            <span data-testid="email-field">
+              { email }
+            </span>
+          </div>
+
+          <div className="total_header">
+            <h2>
+              Despesa Total (
+              <span data-testid="header-currency-field">
+                BRL
+              </span>
+              )
+            </h2>
+            $
+            <span data-testid="total-field">
+              { total.toFixed(2) }
+            </span>
+          </div>
+
+        </div>
+      </header>
     );
   }
 }

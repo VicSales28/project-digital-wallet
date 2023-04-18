@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,6 +7,7 @@ import Input from './Input';
 import Select from './Select';
 import { getSelectedCurrencies, addExpense } from '../redux/actions/index';
 import { fetchAllCurrencies } from '../helpers/fetchFunctions';
+import '../styles/components/WalletForm.css';
 
 const initialState = {
   value: '',
@@ -55,50 +57,64 @@ class WalletForm extends Component {
     const tagsAvailable = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
     return (
       <form
+        className="expense_form"
         onSubmit={ (e) => {
           e.preventDefault();
         } }
       >
-        <h3>WalletForm</h3>
-        <Input
-          type="number"
-          placeholder="Expense value"
-          testid="value-input"
-          name="value"
-          value={ value }
-          onChange={ this.handleChange }
-        />
-        <Input
-          type="text"
-          placeholder="Expense description"
-          testid="description-input"
-          name="description"
-          value={ description }
-          onChange={ this.handleChange }
-        />
-        <Select
-          testid="currency-input"
-          name="currency"
-          value={ currency }
-          onChange={ this.handleChange }
-          options={ currencies }
-        />
-        <Select
-          testid="method-input"
-          name="method"
-          value={ method }
-          onChange={ this.handleChange }
-          options={ methodsAvailable }
-        />
-        <Select
-          testid="tag-input"
-          name="tag"
-          value={ tag }
-          onChange={ this.handleChange }
-          options={ tagsAvailable }
-        />
+        <label>
+          Valor
+          <Input
+            type="number"
+            testid="value-input"
+            name="value"
+            value={ value }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label>
+          Descrição
+          <Input
+            type="text"
+            testid="description-input"
+            name="description"
+            value={ description }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label>
+          Moeda
+          <Select
+            testid="currency-input"
+            name="currency"
+            value={ currency }
+            onChange={ this.handleChange }
+            options={ currencies }
+          />
+        </label>
+        <label>
+          Método de pagamento
+          <Select
+            testid="method-input"
+            name="method"
+            value={ method }
+            onChange={ this.handleChange }
+            options={ methodsAvailable }
+          />
+        </label>
+        <label>
+          Tag
+          <Select
+            testid="tag-input"
+            name="tag"
+            value={ tag }
+            onChange={ this.handleChange }
+            options={ tagsAvailable }
+          />
+        </label>
         <button
           onClick={ this.addNewExpense }
+          className="add_btn"
         >
           Adicionar despesa
         </button>

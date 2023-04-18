@@ -35,7 +35,7 @@ class Table extends Component {
             <th>Câmbio utilizado</th>
             <th>Valor convertido</th>
             <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
+            <th>Excluir</th>
           </tr>
         </thead>
 
@@ -57,18 +57,13 @@ class Table extends Component {
               <td>{this.getName(exchangeRates, currency)}</td>
               <td>{this.getRoundedRate(exchangeRates, currency)}</td>
               <td>{this.getConvertedValue(value, exchangeRates, currency)}</td>
-              <td>Real</td>
+              <td>BRL</td>
               <td>
                 <button
                   data-testid="delete-btn"
                   onClick={ () => this.toRemove(id) }
                 >
-                  Delete
-                </button>
-                <button
-                  data-testid="edit-btn"
-                >
-                  Editar despesa
+                  Excluir
                 </button>
               </td>
             </tr>

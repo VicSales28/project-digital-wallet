@@ -6,6 +6,7 @@
     "node": "16 || 18"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@redux-devtools/extension": "3.2.5",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
