@@ -47,7 +47,7 @@ To run them locally, run the commands below:
   <summary><strong>🖥️ To access</strong></summary><br />
 
 1 - Clone the repository:
-`git clone git@github.com:VicSales28/project-pokedex-with-RLT.git`
+`git clone git@github.com:VicSales28/project-digital-wallet.git`
 
 2 - Enter the repository folder you just cloned.
 
