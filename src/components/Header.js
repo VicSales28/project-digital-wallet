@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import WalletIcon from '../icons/WalletIcon';
+import WalletIcon from './WalletIcon';
 import '../styles/components/Header.css';
 
 class Header extends Component {
