@@ -8,7 +8,7 @@ class Routes extends Component {
     return (
       <Switch>
         <Route exact path="/carteira" component={ Wallet } />
-        <Route exact path="/" component={ Login } />
+        <Route exact path="/project-digital-wallet" component={ Login } />
       </Switch>
     );
   }
