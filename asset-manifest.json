@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/project-digital-wallet/static/css/main.1f56b26b.css",
+    "main.js": "/project-digital-wallet/static/js/main.7846dd6f.js",
+    "static/media/pocket.png": "/project-digital-wallet/static/media/pocket.41f5b651611523ceff63.png",
+    "static/media/coins.png": "/project-digital-wallet/static/media/coins.300cc07f77628c7e4b56.png",
+    "index.html": "/project-digital-wallet/index.html",
+    "main.1f56b26b.css.map": "/project-digital-wallet/static/css/main.1f56b26b.css.map",
+    "main.7846dd6f.js.map": "/project-digital-wallet/static/js/main.7846dd6f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f56b26b.css",
+    "static/js/main.7846dd6f.js"
+  ]
+}
